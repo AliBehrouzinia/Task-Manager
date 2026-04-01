@@ -20,8 +20,8 @@ import com.example.taskmanager.ui.components.CheckerCircle
 import com.example.taskmanager.ui.utils.applyIf
 
 @Composable
-fun TaskItem(modifier: Modifier, title: String) {
-    val (isSelected, setSelected) = remember { mutableStateOf(false) }
+fun TaskItem(modifier: Modifier, task: Task, onTaskClick: (Int) -> Unit) {
+    val (isSelected, setSelected) = remember { mutableStateOf(task.isDone) }
     val textColor = if (isSelected) Color.Gray else Color.Black
 
     Card(
@@ -33,10 +33,13 @@ fun TaskItem(modifier: Modifier, title: String) {
         ) {
             CheckerCircle(
                 isSelected = isSelected,
-                onClick = { setSelected(!isSelected) }
+                onClick = {
+                    setSelected(!isSelected)
+                    onTaskClick(task.id)
+                }
             )
             Text(
-                modifier = Modifier.Companion.applyIf(isSelected) {
+                modifier = Modifier.applyIf(isSelected) {
                 drawBehind {
                     val canvasWidth = size.width
                     val canvasHeight = size.height
@@ -48,7 +51,7 @@ fun TaskItem(modifier: Modifier, title: String) {
                     )
                 }
             },
-                text = title,
+                text = task.title,
                 color = textColor
             )
         }
@@ -59,6 +62,6 @@ fun TaskItem(modifier: Modifier, title: String) {
 @Composable
 fun TaskItemPreview() {
     Box(Modifier.background(Color.Yellow)) {
-        TaskItem(Modifier, "task")
+        TaskItem(Modifier, Task("Task", 1, false), {})
     }
 }
