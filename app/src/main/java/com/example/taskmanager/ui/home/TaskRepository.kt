@@ -1,14 +1,14 @@
 package com.example.taskmanager.ui.home
 
+import com.example.taskmanager.data.NetworkService
+import com.example.taskmanager.mapper.toPresentation
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class TaskRepository @Inject constructor() {
+class TaskRepository @Inject constructor(val networkService: NetworkService) {
 
     suspend fun getTasks(): List<Task> = withContext(Dispatchers.IO) {
-        delay(3000)
-        return@withContext MockDataProvider.getTasks()
+        return@withContext networkService.getTasks().map { it.toPresentation() }
     }
 }

@@ -1,12 +1,11 @@
 package com.example.taskmanager.data
 
-import android.telecom.Call
-import com.example.taskmanager.data.model.Task
+import com.example.taskmanager.data.model.TaskEntity
 import retrofit2.http.GET
 
 
 interface NetworkService {
 
-    @GET
-    suspend fun getTasks(): List<Task>
+    @GET("/Tasks.json")
+    suspend fun getTasks(): List<TaskEntity>
 }
