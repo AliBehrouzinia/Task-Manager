@@ -1,7 +1,7 @@
-package com.example.taskmanager.di
+package com.example.taskmanager.presentation.di
 
-import com.example.taskmanager.Constants
-import com.example.taskmanager.data.NetworkService
+import com.example.taskmanager.data.network.Constants
+import com.example.taskmanager.data.network.NetworkService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

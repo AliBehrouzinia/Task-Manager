@@ -2,7 +2,7 @@ package com.example.taskmanager.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class TaskEntity(
+data class TaskDto(
     @SerializedName("id")
     val id: Int,
     @SerializedName("title")

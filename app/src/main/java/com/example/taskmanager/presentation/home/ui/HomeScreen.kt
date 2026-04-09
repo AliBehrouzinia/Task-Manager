@@ -1,4 +1,4 @@
-package com.example.taskmanager.ui.home
+package com.example.taskmanager.presentation.home.ui
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -13,7 +13,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.taskmanager.ui.theme.TaskManagerTheme
+import com.example.taskmanager.presentation.home.HomeUiState
+import com.example.taskmanager.presentation.home.model.UiTaskState
+import com.example.taskmanager.presentation.theme.TaskManagerTheme
 
 @Composable
 fun HomeScreen(uiState: HomeUiState, onTaskClick: (Int) -> Unit) {
@@ -57,12 +59,12 @@ fun EmptyState() {
 }
 
 @Composable
-fun DataState(modifier: Modifier, data: List<Task>, onTaskClick: (Int) -> Unit) {
+fun DataState(modifier: Modifier, data: List<UiTaskState>, onTaskClick: (Int) -> Unit) {
     TaskList(modifier, data, onTaskClick)
 }
 
 @Composable
-fun TaskList(modifier: Modifier, data: List<Task>, onTaskClick: (Int) -> Unit) {
+fun TaskList(modifier: Modifier, data: List<UiTaskState>, onTaskClick: (Int) -> Unit) {
     LazyColumn (modifier) {
         items(data) { item ->
             TaskItem(modifier, item, onTaskClick)

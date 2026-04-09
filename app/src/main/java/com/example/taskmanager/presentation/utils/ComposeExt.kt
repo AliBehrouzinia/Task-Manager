@@ -1,4 +1,4 @@
-package com.example.taskmanager.ui.utils
+package com.example.taskmanager.presentation.utils
 
 import androidx.compose.ui.Modifier
 

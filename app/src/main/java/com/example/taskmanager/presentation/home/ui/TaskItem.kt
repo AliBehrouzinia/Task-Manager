@@ -1,4 +1,4 @@
-package com.example.taskmanager.ui.home
+package com.example.taskmanager.presentation.home.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -16,12 +16,13 @@ import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.taskmanager.ui.components.CheckerCircle
-import com.example.taskmanager.ui.utils.applyIf
+import com.example.taskmanager.presentation.components.CheckerCircle
+import com.example.taskmanager.presentation.home.model.UiTaskState
+import com.example.taskmanager.presentation.utils.applyIf
 
 @Composable
-fun TaskItem(modifier: Modifier, task: Task, onTaskClick: (Int) -> Unit) {
-    val (isSelected, setSelected) = remember { mutableStateOf(task.isDone) }
+fun TaskItem(modifier: Modifier, uiTaskState: UiTaskState, onTaskClick: (Int) -> Unit) {
+    val (isSelected, setSelected) = remember { mutableStateOf(uiTaskState.isDone) }
     val textColor = if (isSelected) Color.Gray else Color.Black
 
     Card(
@@ -35,7 +36,7 @@ fun TaskItem(modifier: Modifier, task: Task, onTaskClick: (Int) -> Unit) {
                 isSelected = isSelected,
                 onClick = {
                     setSelected(!isSelected)
-                    onTaskClick(task.id)
+                    onTaskClick(uiTaskState.id)
                 }
             )
             Text(
@@ -51,7 +52,7 @@ fun TaskItem(modifier: Modifier, task: Task, onTaskClick: (Int) -> Unit) {
                     )
                 }
             },
-                text = task.title,
+                text = uiTaskState.title,
                 color = textColor
             )
         }
@@ -62,6 +63,6 @@ fun TaskItem(modifier: Modifier, task: Task, onTaskClick: (Int) -> Unit) {
 @Composable
 fun TaskItemPreview() {
     Box(Modifier.background(Color.Yellow)) {
-        TaskItem(Modifier, Task("Task", 1, false), {})
+        TaskItem(Modifier, UiTaskState("Task", 1, false), {})
     }
 }
