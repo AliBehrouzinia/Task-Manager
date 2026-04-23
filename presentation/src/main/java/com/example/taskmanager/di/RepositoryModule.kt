@@ -1,7 +1,7 @@
 package com.example.taskmanager.di
 
-import com.example.taskmanager.repository.TaskRepositoryImpl
-import com.example.taskmanager.repository.TaskRepository
+import com.example.data.repository.TaskRepositoryImpl
+import com.example.domain.repository.TaskRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

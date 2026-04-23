@@ -1,6 +1,6 @@
 package com.example.taskmanager.di
 
-import com.example.taskmanager.network.NetworkService
+import com.example.data.network.NetworkService
 import com.example.taskmanager.Constants
 import dagger.Module
 import dagger.Provides

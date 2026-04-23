@@ -1,6 +1,6 @@
-package com.example.taskmanager.network
+package com.example.data.network
 
-import com.example.taskmanager.model.TaskDto
+import com.example.data.model.TaskDto
 import retrofit2.http.GET
 
 interface NetworkService {
