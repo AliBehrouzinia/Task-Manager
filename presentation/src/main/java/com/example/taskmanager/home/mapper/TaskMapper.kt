@@ -1,6 +1,6 @@
 package com.example.taskmanager.home.mapper
 
-import com.example.domain.model.Task
+import com.example.taskmanager.model.Task
 import com.example.taskmanager.home.model.TaskUiState
 
 

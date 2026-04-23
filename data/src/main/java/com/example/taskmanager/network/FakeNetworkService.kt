@@ -1,6 +1,6 @@
-package com.example.data.network
+package com.example.taskmanager.network
 
-import com.example.data.model.TaskDto
+import com.example.taskmanager.model.TaskDto
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext

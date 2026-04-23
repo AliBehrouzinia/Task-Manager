@@ -1,8 +1,7 @@
-package com.example.data.repository
+package com.example.taskmanager.repository
 
-import com.example.data.network.NetworkService
-import com.example.domain.model.Task
-import com.example.domain.repository.TaskRepository
+import com.example.taskmanager.network.NetworkService
+import com.example.taskmanager.model.Task
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject

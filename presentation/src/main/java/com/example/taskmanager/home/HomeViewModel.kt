@@ -2,7 +2,7 @@ package com.example.taskmanager.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.domain.repository.TaskRepository
+import com.example.taskmanager.repository.TaskRepository
 import com.example.taskmanager.home.mapper.toUiTaskState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

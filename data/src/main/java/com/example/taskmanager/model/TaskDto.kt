@@ -1,6 +1,5 @@
-package com.example.data.model
+package com.example.taskmanager.model
 
-import com.example.domain.model.Task
 import com.google.gson.annotations.SerializedName
 
 data class TaskDto(
