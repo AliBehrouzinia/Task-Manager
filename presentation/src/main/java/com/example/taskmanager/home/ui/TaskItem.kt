@@ -40,7 +40,7 @@ fun TaskItem(modifier: Modifier, taskUiState: TaskUiState, onTaskClick: (Int) ->
                 }
             )
             Text(
-                modifier = Modifier.Companion.applyIf(isSelected) {
+                modifier = Modifier.applyIf(isSelected) {
                 drawBehind {
                     val canvasWidth = size.width
                     val canvasHeight = size.height

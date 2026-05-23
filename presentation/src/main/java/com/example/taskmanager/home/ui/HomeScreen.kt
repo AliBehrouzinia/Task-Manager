@@ -13,20 +13,21 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.taskmanager.home.HomeStatus
 import com.example.taskmanager.home.HomeUiState
 import com.example.taskmanager.home.model.TaskUiState
 import com.example.taskmanager.theme.TaskManagerTheme
 
 @Composable
-fun HomeScreen(uiState: HomeUiState, onTaskClick: (Int) -> Unit) {
+fun HomeScreen(uiState: HomeUiState, onTaskClick: (TaskUiState) -> Unit) {
     TaskManagerTheme {
         Scaffold(modifier = Modifier.fillMaxSize(), content = { innerPadding ->
             val modifier = Modifier.padding(innerPadding)
-            when (uiState) {
-                is HomeUiState.Data -> DataState(modifier, uiState.data, onTaskClick)
-                HomeUiState.Empty -> EmptyState()
-                HomeUiState.Error -> ErrorState()
-                HomeUiState.Loading -> LoadingState()
+            when (uiState.status) {
+                HomeStatus.Content -> DataState(modifier, uiState.tasks, onTaskClick)
+                HomeStatus.Empty -> EmptyState()
+                HomeStatus.Loading -> LoadingState()
+                is HomeStatus.Error -> ErrorState()
             }
         })
     }
@@ -59,16 +60,15 @@ fun EmptyState() {
 }
 
 @Composable
-fun DataState(modifier: Modifier, data: List<TaskUiState>, onTaskClick: (Int) -> Unit) {
+fun DataState(modifier: Modifier, data: List<TaskUiState>, onTaskClick: (TaskUiState) -> Unit) {
     TaskList(modifier, data, onTaskClick)
 }
 
 @Composable
-fun TaskList(modifier: Modifier, data: List<TaskUiState>, onTaskClick: (Int) -> Unit) {
-    LazyColumn (modifier) {
+fun TaskList(modifier: Modifier, data: List<TaskUiState>, onTaskClick: (TaskUiState) -> Unit) {
+    LazyColumn(modifier) {
         items(data) { item ->
-            TaskItem(modifier, item, onTaskClick)
+            TaskItem(modifier, item, { onTaskClick.invoke(item) })
         }
     }
-
 }

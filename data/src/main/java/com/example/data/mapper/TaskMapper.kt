@@ -8,3 +8,9 @@ fun TaskDto.toDomain(): Task = Task(
     title = this.title,
     isDone = this.isDone,
 )
+
+fun Task.toDto(): TaskDto = TaskDto(
+    id = this.id,
+    title = this.title,
+    isDone = this.isDone,
+)

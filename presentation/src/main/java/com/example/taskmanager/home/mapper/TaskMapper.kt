@@ -9,3 +9,9 @@ fun Task.toUiTaskState(): TaskUiState = TaskUiState(
     title = this.title,
     isDone = this.isDone,
 )
+
+fun TaskUiState.toDomain(): Task = Task(
+    id = this.id,
+    title = this.title,
+    isDone = this.isDone,
+)

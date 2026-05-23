@@ -7,4 +7,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface TaskRepository {
     fun getTasks(): Flow<Result<List<Task>, ErrorResult>>
+    fun updateTask(task: Task): Flow<Result<Task, ErrorResult>>
 }
